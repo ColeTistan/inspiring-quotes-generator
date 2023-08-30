@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Playfair+Display:wght@500&display=swap');
+
 :root {
     --primary: #8FC93A;
     --primary-dark: #577b22;
@@ -9,16 +11,17 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
 
 body {
     background: var(--ternary);
 }
 
-h2 {
+h1 {
     font-weight: 800;
     letter-spacing: 1px;
+    font-size: 1.75rem;
 }
 
 .container {
@@ -26,12 +29,11 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    width: 75%;
+    margin: auto;
 }
 
 .quote-box {
-    display: flex;
-    flex-direction: column;
     background: var(--light);
     padding: 2rem;
     border-radius: 1em;
@@ -44,9 +46,16 @@ h2 {
     line-height: 40px;
 }
 
+.quote-box blockquote {
+    padding: 1rem;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
 .social-media-link {
-    font-size: 2rem;
-    padding: 0.5rem;
+    font-size: 2.5rem;
+    padding: 0.6rem;
     transition: ease-out 0.3s;
 }
 
@@ -58,13 +67,20 @@ h2 {
     display: flex;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
+}
+
+.btn-group .social-media-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .btn-group .submit-btn{
     margin: 10px;
-    padding: 0 15px;
+    padding: 10px;
     font-size: 1.25rem;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     border: none;
     background: var(--primary);
     color: var(--light);
@@ -72,7 +88,6 @@ h2 {
     letter-spacing: 1px;
     cursor: pointer;
     transition: ease-out 0.25s;
-
 }
 
 .btn-group .submit-btn:hover{
