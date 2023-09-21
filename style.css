@@ -29,28 +29,34 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75%;
+    width: 90%;
     margin: auto;
 }
 
 .quote-box {
     background: var(--light);
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 1em;
     text-align: center;
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.20);
+    height: auto;
+    width: 20rem;
 }
 
 .quote-box .quote-details {
-    padding: 1rem;
-    line-height: 40px;
+    padding: 0.5rem;
+    line-height: 2rem;
+    color: #222;
+}
+
+.quote-box .quote-details span {
+    color: #555;
 }
 
 .quote-box blockquote {
-    padding: 1rem;
     letter-spacing: 1px;
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .social-media-link {
@@ -70,15 +76,9 @@ h1 {
     flex-direction: column;
 }
 
-.btn-group .social-media-group {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
 .btn-group .submit-btn{
     margin: 10px;
-    padding: 10px;
+    padding: 0.5rem;
     font-size: 1.25rem;
     border-radius: 1.5rem;
     border: none;
@@ -105,3 +105,4 @@ h1 {
 .social-media-link .bi-linkedin {
     color: #0077b5;
 }
+
