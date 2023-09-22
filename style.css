@@ -63,6 +63,7 @@ h1 {
     font-size: 2.5rem;
     padding: 0.6rem;
     transition: ease-out 0.3s;
+    cursor: pointer;
 }
 
 .social-media-link:hover {
@@ -98,11 +99,7 @@ h1 {
     color: #00acee;
 }
 
-.social-media-link .bi-facebook {
-    color: #3b5998;
-}
-
-.social-media-link .bi-linkedin {
-    color: #0077b5;
+.social-media-link .bi-copy {
+    color: var(--secondary)
 }
 
