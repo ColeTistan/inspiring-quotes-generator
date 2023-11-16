@@ -1,3 +1,5 @@
+let quoteArr = [];
+
 // DOM elements from quote-box div
 const quoteBox = document.getElementById('quote-box');
 const quote = document.getElementById('quote');
@@ -10,14 +12,15 @@ const facebook = document.getElementById('facebook');
 const linkedin = document.getElementById('linkedin');
 
 // additional variables for API(s).
-const baseURL = 'https://api.api-ninjas.com/v1/quotes?category=inspirational';
+// Dev branch uses placeholder API for testing
+const baseURL = 'https://dummyjson.com/quotes/';
 const twitterURL = "https://twitter.com/intent/tweet?text="
 const facebookURL = "http://www.facebook.com/sharer.php";
-const apiHeader = {
-    method: 'GET',
-    headers: {'X-Api-Key': 'beuxX1kdS+1kt19dZ3krmg==ZUmtHDnlRv2NKU4C'},
-    contentType: 'application/json'
-}
+// const apiHeader = {
+//     method: 'GET',
+//     headers: {'X-Api-Key': 'beuxX1kdS+1kt19dZ3krmg==ZUmtHDnlRv2NKU4C'},
+//     contentType: 'application/json'
+// }
 
 // shares quote via Twitter (X)
 const twitterShare = function () {
@@ -32,18 +35,37 @@ const copyQuote = function () {
     alert("Quote Copied")
 }
 
+// populate quotes fetched into quotes Array with some length.
+const populateQuotes = async function() {
+    let randNumOfQuotes = Math.floor(Math.random() * (10 - 5) + 5);
+    for(let i = 1; i <= randNumOfQuotes; i++) {
+        let quoteRes = await getQuotes();
+        let quoteObj = {
+            'quote': quoteRes.quote,
+            'author': quoteRes.author
+        }
+        quoteArr.push(quoteObj);
+    }
+}
+
+// creates a Promise and return quote data asynchronously.
+const getQuotes = async function() {
+    let randId = Math.floor(Math.random() * (100 - 1) + 1);
+    try {
+        let res = await fetch(`${baseURL}${randId}`);
+        return await res.json();
+    } catch(err) {
+        console.error(err);
+    }
+}
+
 // Submit button to generate new quote upon click event
 submitBtn.addEventListener('click', function (evt) {
     evt.preventDefault()
-    fetch(baseURL, apiHeader).then(res => {
-        return res.json();
-    }).then(data => {
-        newQuote = data[0].quote;
-        newAuthor = data[0].author;
-        quote.innerHTML = `&quot;${newQuote}&quot;`;
-        author.innerHTML = `- ${newAuthor}`;
-        console.log(`${twitter.href}?text="${newQuote}\n${newAuthor}"`)
-    }).catch(err => {
-        console.error(err);
-    })
+    // let randQuoteIndex = Math.floor(Math.random() * quoteArr.length);
+    // let quote = quoteArr[randQuoteIndex];
+    // quote.innerHTML = ``
 });
+
+populateQuotes();
+console.log(quoteArr);
