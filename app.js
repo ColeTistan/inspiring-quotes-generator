@@ -62,9 +62,10 @@ const getQuotes = async function() {
 // Submit button to generate new quote upon click event
 submitBtn.addEventListener('click', function (evt) {
     evt.preventDefault()
-    // let randQuoteIndex = Math.floor(Math.random() * quoteArr.length);
-    // let quote = quoteArr[randQuoteIndex];
-    // quote.innerHTML = ``
+    let randQuoteIndex = Math.floor(Math.random() * quoteArr.length);
+    let quoteObj = quoteArr[randQuoteIndex];
+    quote.innerText = quoteObj.quote;
+    author.innerText = quoteObj.author;
 });
 
 populateQuotes();
