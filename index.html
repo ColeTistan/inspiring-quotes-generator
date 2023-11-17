@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Kindlin</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container" id="container">
-        <div class="quote-box" id="quote-box">
-            <h2>Quote to brighten your day &#128519;</h2>
-            <div class="quote-details" id="quote-details">
-                <blockquote class="quote" id="quote">&quot;Carpe Diem.&quot;</blockquote>
-                <span class="author" id="author">&hyphen; Horace</span>
-            </div>
-            <br>
-            <div class="btn-group">
-                <button class="submit-btn" id="submit-btn" type="submit">New Quote</button>
-                <div class="social-media-group" id="social-media-group">
-                    <a class="social-media-link" id="twitter" target="_blank" onclick="twitterShare()"><i class="bi bi-twitter"></i></a>
-                    <a class="social-media-link" id="copy-button" target="_blank" onclick="copyQuote()"><i class="bi bi-clipboard"></i></a>
-                </div>
-            </div>
+      <div class="quote-box" id="quote-box">
+        <div class="quote-details" id="quote-details">
+          <p class="quote" id="quote">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio incidunt deleniti dolorem vitae!
+            Consectetur, dolor velit error dolorum sequi similique molestiae optio corporis dignissimos,
+            quia explicabo laboriosam, atque nulla officia!
+          </p>
+          <p class="author" id="author">Horace</p>
         </div>
+        <div class="btn-group">
+          <button class="submit-btn" id="submit-btn" type="submit">
+            New Quote
+          </button>
+          <div class="social-media-group" id="social-media-group">
+            <a
+              class="social-media-link"
+              id="twitter"
+              target="_blank"
+              onclick="twitterShare()"
+              ><i class="bi bi-twitter"></i
+            ></a>
+            <a
+              class="social-media-link"
+              id="copy-button"
+              target="_blank"
+              onclick="copyQuote()"
+              ><i class="bi bi-copy"></i
+            ></a>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
