@@ -1,3 +1,5 @@
+let quoteArr = [];
+
 // DOM elements from quote-box div
 const quoteBox = document.getElementById('quote-box');
 const quote = document.getElementById('quote');
@@ -28,22 +30,40 @@ const twitterShare = function () {
 
 // copies quote to clipboard
 const copyQuote = function () {
-    navigator.clipboard.writeText(quote.innerHTML);
-    alert("Quote Copied")
+    let quoteBoxText = `${quote.innerText} - ${author.innerText}`;
+    navigator.clipboard.writeText(quoteBoxText);
+    alert("Quote Copied");
+}
+
+// creates a Promise and return quote data asynchronously.
+const getQuotes = async function() {
+    let randId = Math.floor(Math.random() * (100 - 1) + 1);
+    try {
+        let res = await fetch(baseURL, apiHeader);
+        return await res.json();
+    } catch(err) {
+        console.error(err);
+    }
+}
+
+// populate quotes fetched into quotes Array with some length.
+const populateQuotes = async function() {
+    let randNumOfQuotes = Math.floor(Math.random() * (10 - 5) + 5);
+    for(let i = 0; i <= randNumOfQuotes; i++) {
+        let quoteRes = await getQuotes();
+        quoteArr.push(quoteRes[0]);
+        console.log(quoteArr);
+    }
 }
 
 // Submit button to generate new quote upon click event
 submitBtn.addEventListener('click', function (evt) {
     evt.preventDefault()
-    fetch(baseURL, apiHeader).then(res => {
-        return res.json();
-    }).then(data => {
-        newQuote = data[0].quote;
-        newAuthor = data[0].author;
-        quote.innerHTML = `&quot;${newQuote}&quot;`;
-        author.innerHTML = `- ${newAuthor}`;
-        console.log(`${twitter.href}?text="${newQuote}\n${newAuthor}"`)
-    }).catch(err => {
-        console.error(err);
-    })
+    let randQuoteIndex = Math.floor(Math.random() * quoteArr.length);
+    let quoteObj = quoteArr[randQuoteIndex];
+    quote.innerText = quoteObj.quote;
+    author.innerText = quoteObj.author;
 });
+
+populateQuotes();
+console.log(quoteArr);
