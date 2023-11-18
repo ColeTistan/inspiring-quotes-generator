@@ -18,7 +18,7 @@ const twitterURL = "https://twitter.com/intent/tweet?text=";
 const facebookURL = "http://www.facebook.com/sharer.php";
 // const apiHeader = {
 //     method: 'GET',
-//     headers: {'X-Api-Key': 'beuxX1kdS+1kt19dZ3krmg==ZUmtHDnlRv2NKU4C'},
+//     headers: {'X-Api-Key': `${process.env.API_KEY}`},
 //     contentType: 'application/json'
 // }
 
