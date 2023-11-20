@@ -1,105 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Playfair+Display:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Playfair+Display:wght@500&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 :root {
-    --primary: #8FC93A;
-    --primary-dark: #577b22;
-    --secondary: #0072BB;
-    --ternary: #E4CC37;
-    --light: #F8F9FA;
+  --primary: #f5bb00;
+  --twitter: #00acee;
+  --tertiary: #ff4e00;
+  --light: #f8f9fa;
+  --light-gray: #545454de;
+  --dark: #242424;
 }
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Playfair Display', serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", serif;
 }
 
 body {
-    background: var(--ternary);
+  background: var(--tertiary);
 }
 
-h1 {
-    font-weight: 800;
-    letter-spacing: 1px;
-    font-size: 1.75rem;
-}
 
 .container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .quote-box {
-    background: var(--light);
-    padding: 1rem;
-    border-radius: 1em;
-    text-align: center;
-    box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.20);
-    height: auto;
-    width: 20rem;
+  padding: 2rem 2rem 1.25rem 2rem;
+  min-height: 325px;
+  display: grid;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background: var(--light);
+  width: 50%;
 }
 
 .quote-box .quote-details {
-    padding: 0.5rem;
-    line-height: 2rem;
-    color: #222;
+  line-height: 2rem;
+  color: var(--dark);
+  text-align: center;
+  padding: 1rem 0;
 }
 
-.quote-box .quote-details span {
-    color: #555;
-}
-
-.quote-box blockquote {
-    letter-spacing: 1px;
-    font-weight: 800;
-    font-size: 1rem;
+.quote {
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: var(--dark);
+  letter-spacing: 1px;
+  font-style: italic;
 }
 
 .social-media-link {
-    font-size: 2.5rem;
-    padding: 0.6rem;
-    transition: ease-out 0.3s;
-    cursor: pointer;
+  font-size: 2.5rem;
+  padding: 0.6rem;
+  transition: ease-out 0.3s;
+  cursor: pointer;
 }
 
 .social-media-link:hover {
-    opacity: 0.75;
+  opacity: 0.75;
 }
 
 .btn-group {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding: 1rem 0 0 0;
 }
 
-.btn-group .submit-btn{
-    margin: 10px;
-    padding: 0.5rem;
-    font-size: 1.25rem;
-    border-radius: 1.5rem;
-    border: none;
-    background: var(--primary);
-    color: var(--light);
-    font-weight: 800;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: ease-out 0.25s;
+.btn-group .submit-btn {
+  padding: 0.5rem 1.5rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  background: var(--primary);
+  color: var(--dark);
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+  outline: none;
 }
 
-.btn-group .submit-btn:hover{
-    background: var(--primary-dark);
+.btn-group .submit-btn:hover {
+  filter: brightness(110%);
+}
+
+.social-media-link {
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 .social-media-link .bi-twitter {
-    color: #00acee;
+  color: var(--twitter);
 }
 
-.social-media-link .bi-copy {
-    color: var(--secondary)
+#copy-button {
+  color: var(--dark);
+  margin-right: 50px;
 }
 
+#author {
+  letter-spacing: 2px;
+  font-weight: 800;
+  font-size: 2rem;
+  padding-top: 1rem;
+}
+
+@media screen and (max-width: 1140px) {
+  .quote-box {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 748px) {
+  .quote-box {
+    width: 100%;
+  }
+
+  .btn-group {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .submit-btn {
+    margin-top: 10px;
+  }
+
+  #copy-button {
+    margin: 0;
+  }
+}

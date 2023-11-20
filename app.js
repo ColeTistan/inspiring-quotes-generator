@@ -23,7 +23,7 @@ const apiHeader = {
 
 // shares quote via Twitter (X)
 const twitterShare = function () {
-    twitterQuoteURL = encodeURI(`${twitterURL}${quote.innerHTML}\n${author.innerHTML}`)
+    twitterQuoteURL = encodeURI(`${twitterURL}${quote.innerHTML}\n - ${author.innerHTML}`)
     window.open(twitterQuoteURL, 'TwitterWindow',width=600,height=300);
     return false;
 }
@@ -37,7 +37,6 @@ const copyQuote = function () {
 
 // creates a Promise and return quote data asynchronously.
 const getQuotes = async function() {
-    let randId = Math.floor(Math.random() * (100 - 1) + 1);
     try {
         let res = await fetch(baseURL, apiHeader);
         return await res.json();
